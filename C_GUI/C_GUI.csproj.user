@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="RJControls\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJCircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="RJControls\RJToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Views\FormBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QLForm\FormChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormTrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\TrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
