@@ -16,3 +16,4 @@ namespace A_DAL.IRepositories
         List<CuaHang> GetAll();
     }
 }
+  

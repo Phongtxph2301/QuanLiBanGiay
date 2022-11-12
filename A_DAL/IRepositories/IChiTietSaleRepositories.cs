@@ -7,7 +7,7 @@ using A_DAL.Entities;
 
 namespace A_DAL.IRepositories
 {
-    public interface ChiTietSaleRepositories
+    public interface IChiTietSaleRepositories
     {
         bool Add(ChiTietSale obj);
         bool Update(ChiTietSale obj);
