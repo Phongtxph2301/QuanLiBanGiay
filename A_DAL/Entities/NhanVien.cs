@@ -25,7 +25,7 @@
         public CuaHang IdCuaHangNavigation { get; set; } = null!;
 
         public ICollection<HoaDon> HoaDons { get; set; }
-
         public ICollection<GiaoCa> GiaoCas { get; set; }
+        public ICollection<GiaoCa> GiaoCaTiepQuans { get; set; }
     }
 }

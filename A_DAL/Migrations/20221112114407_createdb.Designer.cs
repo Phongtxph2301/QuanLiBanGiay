@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADAL.Migrations
 {
     [DbContext(typeof(NahidaShoesDbContext))]
-    [Migration("20221110155843_createdb")]
+    [Migration("20221112114407_createdb")]
     partial class createdb
     {
         /// <inheritdoc />
@@ -106,6 +106,37 @@ namespace ADAL.Migrations
                         .IsUnique();
 
                     b.ToTable("ChiTietSale");
+                });
+
+            modelBuilder.Entity("A_DAL.Entities.ChiTietThanhToan", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("GhiChu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("IdHoaDon")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdPhuongThucThanhToan")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<float>("SoTienThanhToan")
+                        .HasColumnType("real");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdHoaDon");
+
+                    b.HasIndex("IdPhuongThucThanhToan");
+
+                    b.ToTable("ChiTietThanhToan");
                 });
 
             modelBuilder.Entity("A_DAL.Entities.ChiTietTheLoai", b =>
@@ -254,6 +285,9 @@ namespace ADAL.Migrations
                     b.Property<Guid>("IdNhanVien")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("IdNhanVienTiepQuan")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("MaGiaoCa")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -279,6 +313,8 @@ namespace ADAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdNhanVien");
+
+                    b.HasIndex("IdNhanVienTiepQuan");
 
                     b.HasIndex("MaGiaoCa")
                         .IsUnique();
@@ -593,21 +629,37 @@ namespace ADAL.Migrations
                     b.ToTable("Nsx");
                 });
 
+            modelBuilder.Entity("A_DAL.Entities.PhuongThucThanhToan", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("MaNsx")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenNsx")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhuongThucThanhToan");
+                });
+
             modelBuilder.Entity("A_DAL.Entities.QuyDoi", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<float>("GiaTriQuyDoi")
-                        .HasColumnType("real");
-
-                    b.Property<float>("GiaTriSauQuyDoi")
-                        .HasColumnType("real");
-
                     b.Property<string>("MaQuyDoi")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<float>("TiLeQuyDoi")
+                        .HasColumnType("real");
 
                     b.Property<int>("TrangThai")
                         .HasColumnType("int");
@@ -704,6 +756,8 @@ namespace ADAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdPhanCap");
+
                     b.HasIndex("MaTheLoai")
                         .IsUnique();
 
@@ -780,6 +834,25 @@ namespace ADAL.Migrations
                     b.Navigation("IdSaleNavigation");
                 });
 
+            modelBuilder.Entity("A_DAL.Entities.ChiTietThanhToan", b =>
+                {
+                    b.HasOne("A_DAL.Entities.HoaDon", "IdHoaDonNavigation")
+                        .WithMany("ChiTietThanhToans")
+                        .HasForeignKey("IdHoaDon")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("A_DAL.Entities.PhuongThucThanhToan", "IdPhuongThucThanhToanNavigation")
+                        .WithMany("ChiTietThanhToans")
+                        .HasForeignKey("IdPhuongThucThanhToan")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("IdHoaDonNavigation");
+
+                    b.Navigation("IdPhuongThucThanhToanNavigation");
+                });
+
             modelBuilder.Entity("A_DAL.Entities.ChiTietTheLoai", b =>
                 {
                     b.HasOne("A_DAL.Entities.ChiTietGiay", "IdChiTietGiayNavigation")
@@ -818,7 +891,15 @@ namespace ADAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("A_DAL.Entities.NhanVien", "IdNhanVienTiepQuanNavigation")
+                        .WithMany("GiaoCaTiepQuans")
+                        .HasForeignKey("IdNhanVienTiepQuan")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("IdNhanVienNavigation");
+
+                    b.Navigation("IdNhanVienTiepQuanNavigation");
                 });
 
             modelBuilder.Entity("A_DAL.Entities.HoaDon", b =>
@@ -905,6 +986,17 @@ namespace ADAL.Migrations
                     b.Navigation("IdCuaHangNavigation");
                 });
 
+            modelBuilder.Entity("A_DAL.Entities.TheLoai", b =>
+                {
+                    b.HasOne("A_DAL.Entities.TheLoai", "IdTheLoaiNavigation")
+                        .WithMany("TheLoais")
+                        .HasForeignKey("IdPhanCap")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("IdTheLoaiNavigation");
+                });
+
             modelBuilder.Entity("A_DAL.Entities.ChiTietGiay", b =>
                 {
                     b.Navigation("ChiTietSales");
@@ -946,6 +1038,8 @@ namespace ADAL.Migrations
 
             modelBuilder.Entity("A_DAL.Entities.HoaDon", b =>
                 {
+                    b.Navigation("ChiTietThanhToans");
+
                     b.Navigation("HoaDonChiTiets");
 
                     b.Navigation("LichSuDiemTieuDungs");
@@ -966,6 +1060,8 @@ namespace ADAL.Migrations
 
             modelBuilder.Entity("A_DAL.Entities.NhanVien", b =>
                 {
+                    b.Navigation("GiaoCaTiepQuans");
+
                     b.Navigation("GiaoCas");
 
                     b.Navigation("HoaDons");
@@ -974,6 +1070,11 @@ namespace ADAL.Migrations
             modelBuilder.Entity("A_DAL.Entities.Nsx", b =>
                 {
                     b.Navigation("ChiTietGiays");
+                });
+
+            modelBuilder.Entity("A_DAL.Entities.PhuongThucThanhToan", b =>
+                {
+                    b.Navigation("ChiTietThanhToans");
                 });
 
             modelBuilder.Entity("A_DAL.Entities.QuyDoi", b =>
@@ -994,6 +1095,8 @@ namespace ADAL.Migrations
             modelBuilder.Entity("A_DAL.Entities.TheLoai", b =>
                 {
                     b.Navigation("ChiTietTheLoais");
+
+                    b.Navigation("TheLoais");
                 });
 #pragma warning restore 612, 618
         }

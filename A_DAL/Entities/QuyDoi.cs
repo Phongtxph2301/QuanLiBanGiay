@@ -8,8 +8,7 @@
         }
         public Guid Id { get; set; }
         public string MaQuyDoi { get; set; } = null!;
-        public float GiaTriQuyDoi { get; set; } = 0!;
-        public float GiaTriSauQuyDoi { get; set; } = 0!;
+        public float TiLeQuyDoi { get; set; } = 0!;
         public int TrangThai { get; set; } = 0!;
 
         public ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
