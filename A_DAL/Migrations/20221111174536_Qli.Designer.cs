@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ADAL.Migrations
 {
     [DbContext(typeof(NahidaShoesDbContext))]
-    [Migration("20221110155843_createdb")]
-    partial class createdb
+    [Migration("20221111174536_Qli")]
+    partial class Qli
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

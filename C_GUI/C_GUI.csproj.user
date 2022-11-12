@@ -34,6 +34,12 @@
     <Compile Update="QLForm\FormChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FormGiaoCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FormHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -43,7 +49,7 @@
     <Compile Update="Views\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\FormTrangChu.cs">
+    <Compile Update="Views\FormXacNhan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\TrangChu.cs">

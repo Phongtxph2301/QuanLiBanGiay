@@ -1,4 +1,6 @@
-﻿namespace C_GUI.Views
+﻿using A_DAL.Entities;
+
+namespace C_GUI.Views
 {
     public partial class TrangChu : Form
     {
@@ -6,20 +8,14 @@
         private readonly Random random;
         private int tempIndex;
         private Form activeForm;
+
         public TrangChu()
         {
             InitializeComponent();
-            random = new Random();
-            _rjbtnDong.Visible = false;
-            //   this.Text = string.Empty;
-            //  this.ControlBox = false;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+               random = new Random();
+               _rjbtndong.Visible = false;
         }
-        // [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        // private extern static void ReleaseCapture();
-        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        // private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        //Methods
+
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -43,17 +39,14 @@
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-                    _pnltitlebar.BackColor = color;
-                    _pnlLogo.BackColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    ThemeColor.PrimaryColor = color;
-                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    _rjbtnDong.Visible = true;
+                    _pnltitleBar.BackColor = color;
+                    _rjbtndong.Visible = true;
                 }
             }
         }
         private void DisableButton()
         {
-            foreach (Control previousBtn in _pnlMenu.Controls)
+            foreach (Control previousBtn in _pnlmenu.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
@@ -75,48 +68,47 @@
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            _pnlDesktop.Controls.Add(childForm);
-            _pnlDesktop.Tag = childForm;
+            _pnlDesktoppanel.Controls.Add(childForm);
+            _pnlDesktoppanel.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lbltitle.Text = childForm.Text;
+            _lbltitle.Text = childForm.Text;
         }
         private void Reset()
         {
             DisableButton();
-            lbltitle.Text = "HOME";
-            _pnltitlebar.BackColor = Color.FromArgb(0, 150, 136);
-            _pnlLogo.BackColor = Color.FromArgb(39, 39, 58);
+            _lbltitle.Text = "HOME";
+            _pnltitleBar.BackColor = Color.FromArgb(0, 150, 136);
+            _pnllogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
-            _rjbtnDong.Visible = false;
+            _rjbtndong.Visible = false;
         }
 
-        private void _btnTrangChu_Click(object sender, EventArgs e)
+       
+
+        private void TrangChu_Load(object sender, EventArgs e)
         {
-            OpenChildForm(new FormTrangChu(), sender);
+
         }
 
-        private void _btnHoaDon_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormHoaDon(), sender);
-        }
-
-        private void _btnSanPham_Click(object sender, EventArgs e)
+        private void _btnSanPham_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new FormSanPham(), sender);
         }
 
-        private void _btnBanHang_Click(object sender, EventArgs e)
+
+
+        private void _btn_GiaoCa_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormBanHang(), sender);
+           OpenChildForm(new FormGiaoCa(), sender);
         }
 
-        private void _btnTHongKe_Click(object sender, EventArgs e)
+        private void _btnThongKe_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new FormThongKe(), sender);
         }
 
-        private void _rjbtnDong_Click(object sender, EventArgs e)
+        private void _rjbtndong_Click_1(object sender, EventArgs e)
         {
             if (activeForm != null)
             {
@@ -124,6 +116,11 @@
             }
 
             Reset();
+        }
+
+        private void _btnBanhang_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormBanHang(), sender);
         }
     }
 }

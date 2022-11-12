@@ -9,7 +9,7 @@ namespace A_DAL.Context
         {
             base.OnConfiguring(optionsBuilder);
             //Đổi connectionString để connect với co sở dữ liệu của mình
-            _ = optionsBuilder.UseSqlServer("Data Source=ACER\\SQLEXPRESS;Initial Catalog=NahidaShoes;User ID=sa;Password=191023;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            _ = optionsBuilder.UseSqlServer("Data Source=DESKTOP-1813CVQ\\SQLEXPRESS;Initial Catalog=NahidaShoes;User ID=Ph20260;Password=123456;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
