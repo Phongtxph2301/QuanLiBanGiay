@@ -130,8 +130,6 @@ namespace ADAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "PhuongThucThanhToan",
                 columns: table => new
                 {
@@ -145,7 +143,6 @@ namespace ADAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "QuyDoi",
                 columns: table => new
                 {
@@ -204,15 +201,12 @@ namespace ADAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TheLoai", x => x.Id);
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                     table.ForeignKey(
                         name: "FK_TheLoai_TheLoai_IdPhanCap",
                         column: x => x.IdPhanCap,
                         principalTable: "TheLoai",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -445,8 +439,6 @@ namespace ADAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "ChiTietThanhToan",
                 columns: table => new
                 {
@@ -475,7 +467,6 @@ namespace ADAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "HoaDonChiTiet",
                 columns: table => new
                 {
@@ -585,8 +576,6 @@ namespace ADAL.Migrations
                 column: "IdSale");
 
             migrationBuilder.CreateIndex(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "IX_ChiTietThanhToan_IdHoaDon",
                 table: "ChiTietThanhToan",
                 column: "IdHoaDon");
@@ -597,7 +586,6 @@ namespace ADAL.Migrations
                 column: "IdPhuongThucThanhToan");
 
             migrationBuilder.CreateIndex(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "IX_ChiTietTheLoai_IdChiTietGiay_IdTheLoai",
                 table: "ChiTietTheLoai",
                 columns: new[] { "IdChiTietGiay", "IdTheLoai" },
@@ -638,14 +626,11 @@ namespace ADAL.Migrations
                 column: "IdNhanVien");
 
             migrationBuilder.CreateIndex(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "IX_GiaoCa_IdNhanVienTiepQuan",
                 table: "GiaoCa",
                 column: "IdNhanVienTiepQuan");
 
             migrationBuilder.CreateIndex(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "IX_GiaoCa_MaGiaoCa",
                 table: "GiaoCa",
                 column: "MaGiaoCa",
@@ -759,14 +744,11 @@ namespace ADAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "IX_TheLoai_IdPhanCap",
                 table: "TheLoai",
                 column: "IdPhanCap");
 
             migrationBuilder.CreateIndex(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "IX_TheLoai_MaTheLoai",
                 table: "TheLoai",
                 column: "MaTheLoai",
@@ -780,12 +762,9 @@ namespace ADAL.Migrations
                 name: "ChiTietSale");
 
             migrationBuilder.DropTable(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "ChiTietThanhToan");
 
             migrationBuilder.DropTable(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "ChiTietTheLoai");
 
             migrationBuilder.DropTable(
@@ -801,12 +780,9 @@ namespace ADAL.Migrations
                 name: "Sale");
 
             migrationBuilder.DropTable(
-<<<<<<<< HEAD:A_DAL/Migrations/20221111174536_Qli.cs
-========
                 name: "PhuongThucThanhToan");
 
             migrationBuilder.DropTable(
->>>>>>>> upstream/main:A_DAL/Migrations/20221112114407_createdb.cs
                 name: "TheLoai");
 
             migrationBuilder.DropTable(

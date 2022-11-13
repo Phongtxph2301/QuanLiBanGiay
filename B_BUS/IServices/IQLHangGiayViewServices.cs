@@ -7,11 +7,11 @@ using B_BUS.View_Models;
 
 namespace B_BUS.IServices
 {
-    public interface IQLChieuCaoDeGiay
+    public interface IQLHangGiayViewServices
     {
-        string Add(QLChieuCaoDeGiayView khv);
-        string Update(QLChieuCaoDeGiayView khv);
+        string Add(QLHangGiayView khv);
+        string Update(QLHangGiayView khv);
         string Delete(Guid idGuid);
-        List<QLChieuCaoDeGiayView> Getall();
+        List<QLHangGiayView> Getall();
     }
 }

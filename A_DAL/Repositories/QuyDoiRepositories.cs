@@ -34,8 +34,7 @@ namespace A_DAL.Repositories
             //  obj.Id=Guid.NewGuid();// Tự Động Gen khóa Chính
             var tempobj = _dbContext.QuyDoi.FirstOrDefault(x => x.Id == obj.Id);
             tempobj.MaQuyDoi = obj.MaQuyDoi;
-            tempobj.GiaTriQuyDoi = obj.GiaTriQuyDoi;
-            tempobj.GiaTriSauQuyDoi = obj.GiaTriSauQuyDoi;
+            tempobj.TiLeQuyDoi = obj.TiLeQuyDoi;
             tempobj.TrangThai = obj.TrangThai;
             _dbContext.Update(tempobj);
             _dbContext.SaveChanges();
