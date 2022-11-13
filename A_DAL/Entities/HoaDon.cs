@@ -6,6 +6,7 @@
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
             LichSuDiemTieuDungs = new HashSet<LichSuDiemTieuDung>();
+            ChiTietThanhToans = new HashSet<ChiTietThanhToan>();
         }
         public Guid Id { get; set; }
         public string MaHoaDon { get; set; } = null!;
@@ -24,5 +25,6 @@
         public ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
 
         public ICollection<LichSuDiemTieuDung> LichSuDiemTieuDungs { get; set; }
+        public ICollection<ChiTietThanhToan> ChiTietThanhToans { get; set; }
     }
 }

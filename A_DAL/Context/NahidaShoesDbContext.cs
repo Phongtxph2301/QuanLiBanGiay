@@ -122,12 +122,17 @@ namespace A_DAL.Context
             _ = builder.Entity<HoaDon>().HasOne<NhanVien>(s => s.IdNhanVienNavigation).WithMany(g => g.HoaDons).HasForeignKey(s => s.IdNhanVien).OnDelete(DeleteBehavior.Restrict);
             ///////////////////////////////
             _ = builder.Entity<GiaoCa>().HasOne<NhanVien>(s => s.IdNhanVienNavigation).WithMany(g => g.GiaoCas).HasForeignKey(s => s.IdNhanVien).OnDelete(DeleteBehavior.Restrict);
+            _ = builder.Entity<GiaoCa>().HasOne<NhanVien>(s => s.IdNhanVienTiepQuanNavigation).WithMany(g => g.GiaoCaTiepQuans).HasForeignKey(s => s.IdNhanVienTiepQuan).OnDelete(DeleteBehavior.Restrict);
             ///////////////////////////////
             _ = builder.Entity<NhanVien>().HasOne<ChucVu>(s => s.IdChucVuNavigation).WithMany(g => g.NhanViens).HasForeignKey(s => s.IdChucVu).OnDelete(DeleteBehavior.Restrict);
             _ = builder.Entity<NhanVien>().HasOne<CuaHang>(s => s.IdCuaHangNavigation).WithMany(g => g.NhanViens).HasForeignKey(s => s.IdCuaHang).OnDelete(DeleteBehavior.Restrict);
             ///////////////////////////////
             _ = builder.Entity<DiemTieuDung>().HasOne<KhachHang>(s => s.KhachHang).WithOne(g => g.DiemTieuDung).HasForeignKey<DiemTieuDung>(s => s.IdKhachHang).OnDelete(DeleteBehavior.Restrict);
-
+            ///////////////////////////////
+            _ = builder.Entity<TheLoai>().HasOne<TheLoai>(s => s.IdTheLoaiNavigation).WithMany(g => g.TheLoais).HasForeignKey(s => s.IdPhanCap).OnDelete(DeleteBehavior.Restrict);
+            ///////////////////////////////
+            _ = builder.Entity<ChiTietThanhToan>().HasOne<HoaDon>(s => s.IdHoaDonNavigation).WithMany(g => g.ChiTietThanhToans).HasForeignKey(s => s.IdHoaDon).OnDelete(DeleteBehavior.Restrict);
+            _ = builder.Entity<ChiTietThanhToan>().HasOne<PhuongThucThanhToan>(s => s.IdPhuongThucThanhToanNavigation).WithMany(g => g.ChiTietThanhToans).HasForeignKey(s => s.IdPhuongThucThanhToan).OnDelete(DeleteBehavior.Restrict);
         }
         public DbSet<MauSac> MauSac { get; set; }
         public DbSet<Nsx> Nsx { get; set; }

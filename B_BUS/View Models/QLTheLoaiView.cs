@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace B_BUS.View_Models
 {
-    public class QLMauSacview
+    public class QLTheLoaiView
     {
-        public Guid Id { get; set; }
-        public string MaMauSac { get; set; } = null!;
-        public string TenMauSac { get; set; } = null!;
+        public string MaTheLoai { get; set; } = null!;
+        public string TenTheLoai { get; set; } = null!;
+        public Guid IdPhanCap { get; set; }
         public int TrangThai { get; set; } = 0!;
     }
 }
